@@ -1,0 +1,42 @@
+<h1>In Create Component...Ready to Create!</h1>
+<!-- 
+  title reqd 4 chars 
+  price recd
+  image url optional
+-->
+<form name = 'productMaker' (submit)="onSubmit(form)" #form='ngForm'>
+      Title : 
+        <input 
+          type="text"
+          name="title"
+          required
+          minlength="4"
+          [(ngModel)]="product.title"
+          #title='ngModel'
+        />
+        
+        <div class = 'side'*ngIf='title.touched && title.invalid'>Title is Required and must be at least 4 long</div><br>
+        
+        Price :
+        <input 
+          name="price" 
+          required 
+          [(ngModel)]="product.price"
+          #price='ngModel'
+        />
+        <div class = 'side' *ngIf='price.touched && price.invalid'>Price is required</div><BR>
+        Image Url (optional):
+        <input 
+          type="string" 
+          name="imgUrl" 
+          [(ngModel)]="product.imgUrl"
+          #imgUrl='ngModel'
+        />
+    <!-- <button type="submit" (click)='triggerEvent($event)' [disabled]="form.invalid">Submit</button> -->
+    <button type="submit"  [disabled]="form.invalid">Submit</button>
+     
+         
+     </form>
+    
+
+
