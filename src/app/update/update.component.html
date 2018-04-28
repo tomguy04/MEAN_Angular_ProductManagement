@@ -1,5 +1,5 @@
 <h1>Update 'em!</h1>
-<h1>{{prodToEdit.title}} </h1>
+<h1>{{prodToEdit.title}} {{prodToEdit.id}}</h1>
 <form name = 'productMaker' (submit)="onSubmit(form)" #form='ngForm'>
       Title : 
         <input
@@ -31,11 +31,10 @@
         />
     <!-- <button type="submit" (click)='triggerEvent($event)' [disabled]="form.invalid">Submit</button> -->
     <button type="submit"  [disabled]="form.invalid">Submit</button>
-    <!-- <button (click)="save()">save</button> -->
-    <!-- <button (click) = 'delete('productToEdit.id')'>Delete</button> -->
+
          
      </form>
-     <button (click) = 'onDelete(prodtoEdit.id)'>Delete</button> 
+     <button (click) = 'onDelete()'>Delete</button> 
 
 
 

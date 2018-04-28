@@ -38,6 +38,24 @@ export class ProductService {
     return of (this.myPRODUCTS[0]);
   }
 
+  // showUpdatedItem(newItem){
+  //   console.log('show');
+  //   let updateItem = PRODUCTS.find(this.findIndexToUpdate, newItem.id);
+  //   let index = PRODUCTS.indexOf(updateItem);
+  //   PRODUCTS[index] = newItem;
+  // }
+
+  // findIndexToUpdate(newItem) { 
+  //   console.log('find');
+  //       return newItem.id === this;
+  // }
+  // deleteProduct(id:number):Observable<Product[]>{
+  //   console.log('id delete from service ', id);
+  //   this.myPRODUCTS = PRODUCTS.filter(p => p.id !== id);
+  //   return of (this.myPRODUCTS);
+  //   // return of (this.myPRODUCTS[0]);
+  // }
+
   // deleteBook(id:number):Observable<Book>{
   //   return this._http.delete<Book>(`${this.base}/${id}`)
   // }
