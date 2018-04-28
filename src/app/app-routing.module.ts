@@ -17,25 +17,27 @@ const routes: Routes = [{
    {
     path: 'products',
     //pathMatch: 'full',
-    component: ReadComponent,
+    // component: ReadComponent,
     children: [{
        path:'new', 
        pathMatch: 'full',
        component : CreateComponent
-      }
-    ]
-  }
+    },
+    {
+      path:'',
+      component: ReadComponent
+    },
   //http://localhost:4200/products/edit/<id>
-  // {
-  //   path : 'products/edit/:id',
-  //   pathMatch: 'full',
-  //   component: UpdateComponent
-  // }
+    {
+      path : 'edit/:id',
+      pathMatch: 'full',
+      component: UpdateComponent
+   }
 
-];
+]}];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{enableTracing:false})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -3,8 +3,8 @@ export class Product{
     public title: string = '';
     public price : number ;
     public imgUrl : string = '';
-    public created_at: Date = new Date();
-    public updated_at: Date = new Date();
+    // public created_at: Date = new Date();
+    // public updated_at: Date = new Date();
 
     constructor(createId = true){
         if (createId){

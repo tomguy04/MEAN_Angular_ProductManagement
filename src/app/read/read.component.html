@@ -1,9 +1,8 @@
 
 <router-outlet></router-outlet>
 <H1>Product List</H1>
-{{myProducts|json}}
 <p *ngFor='let product of myPRODUCTS'>
-    {{product.title}}
+    {{product.id}} {{product.title}} 
     <button (click) = 'delete(product.id)'>Delete</button>
-    <button (click) = 'edit(product.id)'>Edit</button>
+    <button [routerLink]="['edit',product.id]">Edit</button>
 </p>
