@@ -3,6 +3,7 @@
 <form name = 'productMaker' (submit)="onSubmit(form)" #form='ngForm'>
       Title : 
         <input
+          value = "{{prodToEdit.title}}"
           type="text"
           name="title"
           required
@@ -31,11 +32,10 @@
     <!-- <button type="submit" (click)='triggerEvent($event)' [disabled]="form.invalid">Submit</button> -->
     <button type="submit"  [disabled]="form.invalid">Submit</button>
     <!-- <button (click)="save()">save</button> -->
-    <button (click) = 'delete(productToEdit.id)'>Delete</button>
-     
+    <!-- <button (click) = 'delete('productToEdit.id')'>Delete</button> -->
          
      </form>
-    
+     <button (click) = 'onDelete(prodtoEdit.id)'>Delete</button> 
 
 
 

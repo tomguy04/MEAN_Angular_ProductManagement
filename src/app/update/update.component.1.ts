@@ -24,26 +24,29 @@ export class UpdateComponent implements OnInit {
 
   ngOnInit() {
     this._productService.getProducts().subscribe(prods => {
-      console.log('ready to edit', prods);
+      console.log(prods);
       this.myPRODUCTS = prods;
     })
 
     // subscribe to router event
-    //if(this._activatedRoute.params.subscribe((params: Params))=>{
     this._activatedRoute.params.subscribe((params: Params) => {
     this.productId = params['id'];
     console.log('udpate component recd pId ', this.productId);
     });
 
-
+    // this._productService.getProducts().subscribe(prods => {
+    //   console.log(prods);
+    //   this.myPRODUCTS = prods;
+    //   this.prodToEdit = prods[0];
+//      console.log('prodtoEdit ', this.prodToEdit);  
+      //got the product, now what?
+    // });
     this._productService.getProdToEdit(this.productId).subscribe(prod => {
       console.log('prod to edit back from service', prod.id , prod);
       this.prodToEdit = prod;
       });
     
   }
-  
-
 
   onSubmit(formData:NgForm){
     event.preventDefault();
@@ -54,28 +57,19 @@ export class UpdateComponent implements OnInit {
     this._productService.editProduct(this.productId,this.product).subscribe(prods => {
       console.log(prods);
       this.myPRODUCTS = prods;
-      this._router.navigateByUrl('products');
       //console.log('ready to edit ', this.prodToEdit);
     });
-
     this.product = new Product();
     formData.reset();
   }
-  
-  
+    
 
-  // onDelete(id:number){
-  //   console.log('id like to redirect')
-  //   this._router.navigate(['/products']);
-  // }
-
- 
-    onDelete(id:number){
+    delete(id:number){
       this._productService.deleteProduct(id)
       .subscribe(returnedProd => {
         console.log('got ', returnedProd, ' ', returnedProd.id, ' back from delete');
         this.myPRODUCTS = this.myPRODUCTS.filter(p => p.id !== returnedProd.id)
-        this._router.navigate(['/products']);
+        this._router.navigateByUrl('products');
       })
     }
 
